@@ -1,0 +1,31 @@
+pipeline {
+	agent none
+  stages {
+    stage('Docker Build') {
+    	agent any
+      steps {
+        sh 'sudo docker build -t forge_backend:v1 .'
+        script {
+          def containerExists = sh(script: "sudo docker ps -a --format '{{.Names}}' | grep -q 'forge_backend'", returnStatus: true)
+
+          if (containerExists == 0) {
+            sh 'sudo docker stop forge_backend'
+      	    sh 'sudo docker rm forge_backend'
+          }
+        }
+      	sh 'sudo docker run -dp 3012:3012 --name forge_backend --env-file /etc/.env forge_backend:v1'
+      }
+    }
+  }
+  post {
+    success {
+        echo 'Deployment to production completed successfully!'
+    }
+    unstable {
+        echo 'Deployment was unstable. Please investigate.'
+    }
+    failure {
+        echo 'Deployment to production failed.'
+    }
+  }
+}
