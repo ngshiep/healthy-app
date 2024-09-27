@@ -50,18 +50,18 @@ class UsersService {
   async login(user_id: string) {
     const [access_token, refresh_token] = await this.signAccessAndRefreshToken(user_id)
     const { iat, exp } = await this.decodeRefreshToken(refresh_token)
-    databaseService.refreshTokens.addData({ id: user_id, token: refresh_token, iat, exp })
+    databaseService.refreshTokens.insertOne({ id: user_id, token: refresh_token, iat, exp })
     return { accessToken: access_token, refreshToken: refresh_token }
   }
 
   async logout(refresh_token: string) {
-    await databaseService.refreshTokens.removeData((token) => token.token === refresh_token)
+    await databaseService.refreshTokens.deleteOne((token) => token.token === refresh_token)
     return {
       message: MESSAGES_USERS.LOGOUT_SUCCESS
     }
   }
   async getMe(user_id: string) {
-    const users = await databaseService.users.readData()
+    const users = await databaseService.users.find()
     const user = users.find((u) => u.id === user_id)
     const omitUser = omit(user, ['password', 'id'])
     return omitUser

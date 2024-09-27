@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getBlogsController } from '~/controllers/blog.controller'
+import { getBlogsController } from '~/controllers/blogs.controller'
 import { wrapErrorAsync } from '~/utils/handlerError'
 
 const blogsRouter = Router()

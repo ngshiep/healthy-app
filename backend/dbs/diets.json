@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "user_id": "1",
+    "diets": [
+      {
+        "id": "1",
+        "date": "05.21",
+        "type": "Morning",
+        "img": "/m01.jpg"
+      },
+      {
+        "id": "2",
+        "date": "05.21",
+        "type": "Lunch",
+        "img": "/l03.jpg"
+      },
+      {
+        "id": "3",
+        "date": "05.21",
+        "type": "Dinner",
+        "img": "/d01.jpg"
+      },
+      {
+        "id": "4",
+        "date": "05.21",
+        "type": "Snack",
+        "img": "/l01.jpg"
+      },
+      {
+        "id": "5",
+        "date": "05.21",
+        "type": "Morning",
+        "img": "/m01.jpg"
+      },
+      {
+        "id": "6",
+        "date": "05.21",
+        "type": "Lunch",
+        "img": "/l02.jpg"
+      },
+      {
+        "id": "7",
+        "date": "05.21",
+        "type": "Dinner",
+        "img": "/d02.jpg"
+      },
+      {
+        "id": "8",
+        "date": "05.21",
+        "type": "Snack",
+        "img": "/s01.jpg"
+      }
+    ]
+  }
+]

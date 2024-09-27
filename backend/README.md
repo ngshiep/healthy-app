@@ -12,6 +12,5 @@
 
 ### private api
 
-- /record/body
-- /record/excercise
-- /body/recommend
+- /record
+- /diets
