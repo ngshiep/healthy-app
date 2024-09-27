@@ -9,7 +9,7 @@ import usersService from '~/services/users.service'
 
 export const loginController = async (req: Request<ParamsDictionary, any, LoginReqBody>, res: Response) => {
   const userRequest = req.body
-  const foundUser = (await databaseService.users.readData()).find(
+  const foundUser = (await databaseService.users.find()).find(
     (u) => u.email === userRequest.email && u.password === userRequest.password
   )
 

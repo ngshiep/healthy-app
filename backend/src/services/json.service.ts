@@ -8,7 +8,7 @@ export class FileSevice<T> {
     this.filePath = path.resolve(__dirname, fileName)
   }
 
-  async readData(): Promise<T[]> {
+  async find(): Promise<T[]> {
     try {
       const data = await fs.readFile(this.filePath, 'utf8')
       return JSON.parse(data) as T[]
@@ -18,7 +18,7 @@ export class FileSevice<T> {
     }
   }
 
-  async writeData(data: T[]): Promise<void> {
+  private async writeData(data: T[]): Promise<void> {
     try {
       const jsonData = JSON.stringify(data, null, 2)
       await fs.writeFile(this.filePath, jsonData, 'utf8')
@@ -27,14 +27,14 @@ export class FileSevice<T> {
     }
   }
 
-  async addData(newItem: T): Promise<void> {
-    const currentData = await this.readData()
+  async insertOne(newItem: T): Promise<void> {
+    const currentData = await this.find()
     currentData.push(newItem)
     await this.writeData(currentData)
   }
 
-  async removeData(predicate: (item: T) => boolean): Promise<void> {
-    const currentData = await this.readData()
+  async deleteOne(predicate: (item: T) => boolean): Promise<void> {
+    const currentData = await this.find()
     const filteredData = currentData.filter((item) => !predicate(item))
     if (filteredData.length === currentData.length) {
       console.log('No item was removed.')
