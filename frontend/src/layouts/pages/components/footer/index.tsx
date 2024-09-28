@@ -12,9 +12,9 @@ const footerTitles = [
 
 export default function Footer() {
   return (
-    <div
+    <footer
       className={customClassNames(
-        'fixed bottom-0 w-screen h-[128px]  flex items-center justify-center bg-bg_primary border border-border  '
+        ' w-screen h-[128px]  flex items-center justify-center bg-bg_primary border border-border  '
       )}
     >
       <div className='flex gap-[45px] max-w-[960px] w-full'>
@@ -24,6 +24,6 @@ export default function Footer() {
           </Link>
         ))}
       </div>
-    </div>
+    </footer>
   )
 }
