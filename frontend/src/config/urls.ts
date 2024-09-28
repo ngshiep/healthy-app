@@ -15,6 +15,7 @@ export const urls = {
       user_info: `auth/info`,
       refresh_token: 'auth/refresh'
     },
-    columns: 'blogs'
+    columns: 'blogs',
+    records: 'records'
   }
 }

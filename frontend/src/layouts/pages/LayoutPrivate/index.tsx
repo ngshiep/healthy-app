@@ -1,4 +1,3 @@
-import { IconButton } from '@mui/material'
 import { useEffect, useRef } from 'react'
 import { Outlet } from 'react-router'
 import { useNavigate } from 'react-router-dom'
@@ -36,15 +35,16 @@ export default function LayoutPrivate() {
   }
   return (
     <div className='w-screen h-screen flex  flex-col !text-sm'>
-      <div className='flex overflow-x-hidden h-screen w-screen'>
+      <div className='flex h-screen overflow-x-hidden w-screen'>
         <HeaderPrivate />
-        <div className='flex-1 flex flex-col text-text_secondary w-full bg-white'>
+        <div className='flex-1 flex flex-col text-text_secondary w-full bg-white items-center'>
           <div
-            className='max-w-[960px] w-full  h-full overflow-auto overflow-x-hidden mt-[64px] mb-[128px] relative'
+            className=' w-full min-h-full overflow-y-auto overflow-x-hidden pt-[64px] mb-[128px] flex flex-col items-center justify-center'
             ref={containerRef}
           >
             <Outlet></Outlet>
-            <div className='absolute right-2 bottom-3 w-[36px] h-[36px]'>
+            <Footer></Footer>
+            {/* <div className='absolute right-2 bottom-3 w-[36px] h-[36px]'>
               <IconButton onClick={handleScrollTop}>
                 <svg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
@@ -59,10 +59,9 @@ export default function LayoutPrivate() {
                   />
                 </svg>
               </IconButton>
-            </div>
+            </div> */}
           </div>
         </div>
-        <Footer></Footer>
       </div>
     </div>
   )

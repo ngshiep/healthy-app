@@ -30,9 +30,9 @@ function HeaderPrivate() {
   }
 
   return (
-    <div
+    <header
       className={customClassNames(
-        'fixed w-screen h-[64px]  flex items-center justify-center bg-bg_primary border border-border  '
+        'fixed w-screen h-[64px]  flex items-center justify-center bg-bg_primary border border-border z-50 '
       )}
     >
       <div className='max-w-[960px] w-full flex items-center justify-between'>
@@ -84,7 +84,7 @@ function HeaderPrivate() {
         <HeaderMenuItem title='コラム一覧'></HeaderMenuItem>
         <HeaderMenuItem title='設定'></HeaderMenuItem>
       </PopoverComponent>
-    </div>
+    </header>
   )
 }
 
