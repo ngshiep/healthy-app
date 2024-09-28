@@ -1,18 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { Outlet } from 'react-router'
 import { useNavigate } from 'react-router-dom'
 import { urls } from 'src/config/urls'
 import { useUserContext } from 'src/contexts/UserProvide'
+import ButtonToTop from 'src/layouts/pages/components/button-to-top'
 import { authService } from 'src/services/auth.service'
 import { UserService } from 'src/services/user.service'
 import { getRefreshTokenFromLS } from 'src/utils/utilsLocalStorage'
 import Footer from '../components/footer'
-import HeaderPrivate from '../components/header-private'
+import Header from '../components/header'
 
 export default function LayoutPrivate() {
   const navigate = useNavigate()
   const { setUser } = useUserContext()
-  const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const fetch = async () => {
       try {
@@ -28,38 +28,15 @@ export default function LayoutPrivate() {
     fetch()
   }, [])
 
-  const handleScrollTop = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
   return (
     <div className='w-screen min-h-screen flex  flex-col !text-sm'>
       <div className='flex min-h-screen overflow-x-hidden w-screen'>
-        <HeaderPrivate />
+        <Header />
         <div className='flex-1 flex flex-col text-text_secondary w-full bg-white items-center'>
-          <div
-            className=' w-full  overflow-y-auto overflow-x-hidden mt-[64px] flex flex-col items-center justify-center'
-            ref={containerRef}
-          >
+          <div className=' w-full  overflow-y-auto overflow-x-hidden mt-[64px] flex flex-col items-center justify-center'>
             <Outlet></Outlet>
             <Footer></Footer>
-            {/* <div className='absolute right-2 bottom-3 w-[36px] h-[36px]'>
-              <IconButton onClick={handleScrollTop}>
-                <svg width='48' height='48' viewBox='0 0 48 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                  <path
-                    d='M24 0.5C36.9787 0.5 47.5 11.0213 47.5 24C47.5 36.9787 36.9787 47.5 24 47.5C11.0213 47.5 0.5 36.9787 0.5 24C0.5 11.0213 11.0213 0.5 24 0.5Z'
-                    fill='white'
-                    fillOpacity='0.01'
-                    stroke='#777777'
-                  />
-                  <path
-                    d='M30.5853 28.042L24.0003 21.6579L17.4153 28.042L16.5391 27.1925L24.0003 19.959L31.4615 27.1925L30.5853 28.042Z'
-                    fill='#777777'
-                  />
-                </svg>
-              </IconButton>
-            </div> */}
+            <ButtonToTop></ButtonToTop>
           </div>
         </div>
       </div>

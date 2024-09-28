@@ -16,6 +16,7 @@ export const urls = {
       refresh_token: 'auth/refresh'
     },
     columns: 'blogs',
-    records: 'records'
+    records: 'records',
+    diets: 'diets'
   }
 }

@@ -7,7 +7,7 @@ import { useColumns } from './services/useColumnsQueries'
 export default function Columns() {
   const { data, isLoading } = useColumns()
   return (
-    <div className='flex flex-col items-center pt-[56px]'>
+    <div className='flex flex-col items-center pt-[56px] max-w-[960px] min-h-[calc(100vh-192px)] relative'>
       <div className='grid grid-cols-4 gap-x-8'>
         <CategoryItem englishLabel='COLUMN' japaneseLabel='オススメ'></CategoryItem>
         <CategoryItem englishLabel='DIET' japaneseLabel='ダイエット'></CategoryItem>
@@ -21,7 +21,10 @@ export default function Columns() {
             .fill(0)
             .map((_, index) => <ColumnSkeleton key={index}></ColumnSkeleton>)}
       </div>
-      <ButtonPrimary label='コラムをもっと見る'></ButtonPrimary>
+
+      <div className='w-full flex items-center justify-center mt-[24px] mb-[64px]'>
+        <ButtonPrimary label='コラムをもっと見る'></ButtonPrimary>
+      </div>
     </div>
   )
 }
