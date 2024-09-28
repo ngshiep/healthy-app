@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700&family=Poppins:wght@300;400;600&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 
 @tailwind base;
 @tailwind components;
@@ -57,4 +58,15 @@ body {
 
 html {
   font-size: 16px;
+}
+
+
+.two-line-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Giới hạn số dòng hiển thị là 2 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: calc(1.5em * 2); /* Đặt chiều cao dựa trên số dòng (1.5em là chiều cao của mỗi dòng) */
+  line-height: 1.5em; /* Đặt chiều cao dòng */
 }

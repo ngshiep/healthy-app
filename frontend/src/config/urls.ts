@@ -6,7 +6,7 @@ export const urls = {
     },
     myPage: 'my-page',
     myRecord: 'my-record',
-    blog: '/blog'
+    column: '/column'
   },
   api: {
     authentication: {
@@ -14,6 +14,7 @@ export const urls = {
       login: 'auth/login',
       user_info: `auth/info`,
       refresh_token: 'auth/refresh'
-    }
+    },
+    columns: 'blogs'
   }
 }

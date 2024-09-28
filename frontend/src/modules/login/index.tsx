@@ -3,7 +3,6 @@ import { Formik, FormikHelpers } from 'formik'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from 'src/assets/icons/logo'
-import { ButtonPrimary } from 'src/components/ButtonComponent'
 import FormikError from 'src/components/FomikComponents/FormikError'
 import InputComponent from 'src/components/InputComponent'
 import InputPasswordComponent from 'src/components/InputPasswordComponent'
@@ -13,6 +12,7 @@ import { useUserContext } from 'src/contexts/UserProvide'
 import { UserService } from 'src/services/user.service'
 import { setUnprocessableEntityErrorToForm } from 'src/utils/utilsError'
 import * as Yup from 'yup'
+import ButtonLogin from './components/button-login'
 import { loginService } from './services/login.service'
 
 const loginSchema = Yup.object().shape({
@@ -48,7 +48,7 @@ export default function LoginPage() {
         // get user info and set data in context and localStorage
         if (resUser.data) {
           setUser({ ...resUser.data.data, token: resLogin.data.refreshToken })
-          navigate(urls.web.blog)
+          navigate(urls.web.column)
         }
       } else {
         setError(true)
@@ -129,9 +129,9 @@ export default function LoginPage() {
                   </span>
                 </div>
               )}
-              <ButtonPrimary onClick={() => handleSubmit()}>
+              <ButtonLogin onClick={() => handleSubmit()}>
                 <span className='!font-medium text-sm '>ログイン</span>
-              </ButtonPrimary>
+              </ButtonLogin>
             </div>
           )}
         </Formik>

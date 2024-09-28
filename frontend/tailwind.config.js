@@ -17,6 +17,9 @@ export default {
         secondary: {
           300: '#8FE9D0'
         }
+      },
+      fontFamily: {
+        inter: ['Inter', 'Helvetica', 'sans-serif']
       }
     }
   },
