@@ -2,6 +2,7 @@ import { Checkbox } from '@mui/material'
 import { Formik, FormikHelpers } from 'formik'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Logo from 'src/assets/icons/logo'
 import { ButtonPrimary } from 'src/components/ButtonComponent'
 import FormikError from 'src/components/FomikComponents/FormikError'
 import InputComponent from 'src/components/InputComponent'
@@ -47,7 +48,7 @@ export default function LoginPage() {
         // get user info and set data in context and localStorage
         if (resUser.data) {
           setUser({ ...resUser.data.data, token: resLogin.data.refreshToken })
-          navigate(urls.web.project.manager)
+          navigate(urls.web.blog)
         }
       } else {
         setError(true)
@@ -65,7 +66,8 @@ export default function LoginPage() {
   return (
     <div className='h-screen w-screen flex justify-center items-center bg-white '>
       <div className='p-5 py-10 rounded-lg bg-white flex flex-col shadow-sm shadow-orange-50 border'>
-        <div className='w-full flex items-center justify-center gap-2 mb-10 pr-3 '>
+        <div className='w-full flex items-center justify-center gap-2 mb-10 pr-3 flex-col'>
+          <Logo></Logo>
           <h1 className='text-[36px] font-medium'>ログイン</h1>
         </div>
         <Formik initialValues={initialValues} validationSchema={loginSchema} onSubmit={handleLogin}>
@@ -82,7 +84,7 @@ export default function LoginPage() {
                   name='email'
                   id='email'
                   className='text-[#000000] rounded-lg block p-2.5 w-[310px] text-sm px-2 py-[10px] outline-none border-none'
-                  placeholder='email@ttdesignco.com'
+                  placeholder='email@gmail.com'
                   value={values.email}
                   onChange={handleChange}
                 ></InputComponent>
@@ -130,10 +132,6 @@ export default function LoginPage() {
               <ButtonPrimary onClick={() => handleSubmit()}>
                 <span className='!font-medium text-sm '>ログイン</span>
               </ButtonPrimary>
-
-              <span className='text-center text-sm pt-5 inline-block'>
-                登録がお済みでない方は管理者にご連絡ください。
-              </span>
             </div>
           )}
         </Formik>

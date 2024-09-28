@@ -21,5 +21,5 @@ export default {
     }
   },
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  plugins: [require('@tailwindcss/container-queries'), require('tailwind-scrollbar')({ nocompatible: true })]
+  plugins: [require('tailwind-scrollbar')({ nocompatible: true })]
 }

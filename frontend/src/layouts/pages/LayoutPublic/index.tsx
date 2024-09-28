@@ -6,7 +6,7 @@ import { useUserContext } from 'src/contexts/UserProvide'
 import { authService } from 'src/services/auth.service'
 import { UserService } from 'src/services/user.service'
 import { getRefreshTokenFromLS } from 'src/utils/utilsLocalStorage'
-import TopBarProject from '../components/TopBarProject'
+import Header from '../components/header-private'
 
 export default function LayoutPublic() {
   const navigate = useNavigate()
@@ -29,10 +29,10 @@ export default function LayoutPublic() {
 
   return (
     <div className='w-screen h-screen flex  flex-col !text-sm'>
-      <TopBarProject />
-      <div className='flex overflow-x-hidden h-screen w-screen'>
+      <div className='flex overflow-x-hidden h-screen container-[960px]'>
+        <Header />
         <div className='flex-1 flex flex-col text-text_secondary w-full'>
-          <div className='bg-white h-full overflow-x-hidden mt-[50px] flex flex-col'>
+          <div className='bg-white h-full overflow-x-hidden mt-[64px] flex flex-col'>
             <Outlet></Outlet>
           </div>
         </div>

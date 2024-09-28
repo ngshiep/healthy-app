@@ -12,7 +12,8 @@
     Helvetica,
     Arial,
     sans-serif;
-  font-weight: 400;
+  font-weight: 300;
+  line-height: 23px;
 }
 *,
 *:before,
@@ -44,9 +45,9 @@ button {
 }
 body {
   min-height: 100vh;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 16px;
-  line-height: 1;
+  line-height: 23px;
   font-family:
     Noto Sans JP,
     Helvetica,
