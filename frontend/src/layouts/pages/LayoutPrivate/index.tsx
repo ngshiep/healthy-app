@@ -34,12 +34,12 @@ export default function LayoutPrivate() {
     }
   }
   return (
-    <div className='w-screen h-screen flex  flex-col !text-sm'>
-      <div className='flex h-screen overflow-x-hidden w-screen'>
+    <div className='w-screen min-h-screen flex  flex-col !text-sm'>
+      <div className='flex min-h-screen overflow-x-hidden w-screen'>
         <HeaderPrivate />
         <div className='flex-1 flex flex-col text-text_secondary w-full bg-white items-center'>
           <div
-            className=' w-full min-h-full overflow-y-auto overflow-x-hidden pt-[64px] mb-[128px] flex flex-col items-center justify-center'
+            className=' w-full  overflow-y-auto overflow-x-hidden mt-[64px] flex flex-col items-center justify-center'
             ref={containerRef}
           >
             <Outlet></Outlet>

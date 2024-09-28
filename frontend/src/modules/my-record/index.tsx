@@ -9,7 +9,7 @@ export default function MyRecord() {
   const { data } = useRecords()
 
   return (
-    <div className='flex flex-col items-center max-w-[960px] flex-1 gap-[56px]'>
+    <div className='flex flex-col items-center max-w-[960px] flex-1 gap-[56px] mt-[56px]'>
       <div className='grid grid-cols-3 gap-x-12 h-[288px]'>
         <CategoryRecord
           englishLabel='BODY RECORD'
