@@ -13,7 +13,7 @@ import customClassNames from 'src/utils/classNames'
 import NavItem from '../nav-item'
 import HeaderMenuItem from './header-menu-Item'
 
-function HeaderPrivate() {
+function Header() {
   const [anchorEl, setAnchorEl] = useState(null)
   const { user } = useUserContext()
 
@@ -81,11 +81,16 @@ function HeaderPrivate() {
         <HeaderMenuItem title='自分の記録'></HeaderMenuItem>
         <HeaderMenuItem title='体重グラフ'></HeaderMenuItem>
         <HeaderMenuItem title='目標'></HeaderMenuItem>
-        <HeaderMenuItem title='コラム一覧'></HeaderMenuItem>
+        <HeaderMenuItem
+          title='コラム一覧'
+          onClick={() => {
+            navigate(urls.web.column)
+          }}
+        ></HeaderMenuItem>
         <HeaderMenuItem title='設定'></HeaderMenuItem>
       </PopoverComponent>
     </header>
   )
 }
 
-export default HeaderPrivate
+export default Header

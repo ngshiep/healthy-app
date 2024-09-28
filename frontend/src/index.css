@@ -5,6 +5,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px #FFCC21;
+  }
+}
 #root {
   width: 100%;
   height: 100vh;
@@ -59,7 +64,6 @@ body {
 html {
   font-size: 16px;
 }
-
 
 .two-line-truncate {
   display: -webkit-box;

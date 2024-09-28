@@ -9,5 +9,5 @@ export const getDietsController = async (req: Request, res: Response) => {
   const diets = await databaseService.diets.find()
   const foundDiets = diets.find((d) => d.user_id === user_id)
   if (!foundDiets) new NotFoundError({ message: 'Not found diets', data: {} }).send(res)
-  new OK({ message: 'Get diets successfully!', data: diets }).send(res)
+  new OK({ message: 'Get diets successfully!', data: foundDiets }).send(res)
 }

@@ -9,7 +9,7 @@ export default function MyRecord() {
   const { data } = useRecords()
 
   return (
-    <div className='flex flex-col items-center max-w-[960px] flex-1 gap-[56px] mt-[56px]'>
+    <div className='flex flex-col items-center max-w-[960px] flex-1 gap-[56px] mt-[56px] min-h-[calc(100vh-192px)] relative'>
       <div className='grid grid-cols-3 gap-x-12 h-[288px]'>
         <CategoryRecord
           englishLabel='BODY RECORD'
@@ -27,7 +27,7 @@ export default function MyRecord() {
 
       <Exercise exercies={data?.exercise as any}></Exercise>
       <Diary></Diary>
-      <div className='flex items-center mt-6 mb-[64px]'>
+      <div className='flex items-center  mb-[64px]'>
         <ButtonPrimary label='自分の日記をもっと見る'></ButtonPrimary>
       </div>
     </div>
