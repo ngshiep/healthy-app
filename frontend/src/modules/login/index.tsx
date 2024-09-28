@@ -65,10 +65,10 @@ export default function LoginPage() {
   }
   return (
     <div className='h-screen w-screen flex justify-center items-center bg-white '>
-      <div className='p-5 py-10 rounded-lg bg-white flex flex-col shadow-sm shadow-orange-50 border'>
+      <div className='p-5 py-10 rounded-lg bg-white flex flex-col shadow-sm shadow-orange-50 border w-[360px]'>
         <div className='w-full flex items-center justify-center gap-2 mb-10 pr-3 flex-col'>
           <Logo></Logo>
-          <h1 className='text-[36px] font-medium'>ログイン</h1>
+          <h1 className='text-[28px] font-medium'>ログイン</h1>
         </div>
         <Formik initialValues={initialValues} validationSchema={loginSchema} onSubmit={handleLogin}>
           {({ values, handleChange, errors, handleSubmit }) => (

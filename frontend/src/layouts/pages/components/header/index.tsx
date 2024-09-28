@@ -9,13 +9,16 @@ import Logo from 'src/assets/icons/logo'
 import PopoverComponent from 'src/components/PopoverComponent'
 import { urls } from 'src/config/urls'
 import { useUserContext } from 'src/contexts/UserProvide'
+import { loginService } from 'src/modules/login/services/login.service'
+import { UserService } from 'src/services/user.service'
 import customClassNames from 'src/utils/classNames'
+import { getRefreshTokenFromLS } from 'src/utils/utilsLocalStorage'
 import NavItem from '../nav-item'
 import HeaderMenuItem from './header-menu-Item'
 
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null)
-  const { user } = useUserContext()
+  const { user, setUser } = useUserContext()
 
   const handleCloseMenu = () => {
     setAnchorEl(null)
@@ -29,6 +32,19 @@ function Header() {
     navigate(urls.web.myPage)
   }
 
+  const handleLogout = async () => {
+    try {
+      const refreshToken = getRefreshTokenFromLS()
+      const res = await loginService.logout(refreshToken || (user?.token ?? ''))
+      if (res.status === 200) {
+        navigate(urls.web.authentication.login)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    setUser(null)
+    UserService.removeUser()
+  }
   return (
     <header
       className={customClassNames(
@@ -88,6 +104,15 @@ function Header() {
           }}
         ></HeaderMenuItem>
         <HeaderMenuItem title='設定'></HeaderMenuItem>
+        {user && <HeaderMenuItem title='ログアウト' onClick={handleLogout}></HeaderMenuItem>}
+        {!user && (
+          <HeaderMenuItem
+            title='ログイン'
+            onClick={() => {
+              navigate(urls.web.authentication.login)
+            }}
+          ></HeaderMenuItem>
+        )}
       </PopoverComponent>
     </header>
   )

@@ -7,7 +7,7 @@ import { urls } from '../config/urls'
 const MustLogin = ({ children }: { children: ReactNode }) => {
   const { user } = useUserContext()
   const isLogin = !!(UserService.getUser() || user)
-  return <>{!isLogin ? <Navigate to={urls.web.authentication.login} /> : children}</>
+  return <>{!isLogin ? <Navigate to={urls.web.column} /> : children}</>
 }
 
 export default MustLogin
