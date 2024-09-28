@@ -1,13 +1,12 @@
-import { Button, ButtonProps } from '@mui/material'
+interface IProps {
+  label: string
+}
 
-export default function ButtonPrimary({ children, sx, ...prop }: ButtonProps) {
+export default function ButtonPrimary(props: IProps) {
+  const { label } = props
   return (
-    <Button
-      variant='contained'
-      sx={{ minWidth: '96px', height: '36px', borderRadius: 0, textTransform: 'none', cursor: 'pointer', ...sx }}
-      {...prop}
-    >
-      {children}
-    </Button>
+    <button className='bg-gradient-to-b from-[#FF963C] to-[#FFCC21] rounded-md h-[56px] w-[296px] text-lg leading-[26px] text-white flex items-center justify-center font-light'>
+      {label}
+    </button>
   )
 }

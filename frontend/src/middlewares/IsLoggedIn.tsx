@@ -5,7 +5,7 @@ import { urls } from '../config/urls'
 
 const IsLoggedIn = ({ children }: { children: ReactNode }) => {
   const isLogin = !!UserService.getUser()
-  return <>{isLogin ? <Navigate to={urls.web.blog} /> : children}</>
+  return <>{isLogin ? <Navigate to={urls.web.column} /> : children}</>
 }
 
 export default IsLoggedIn

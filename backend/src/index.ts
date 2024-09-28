@@ -11,7 +11,8 @@ const app = express()
 const port = config?.app.port
 
 const corsOptions: CorsOptions = {
-  origin: '*'
+  origin: '*',
+  credentials: false // Không gửi thông tin xác thực
 }
 app.use(cors(corsOptions))
 app.use(express.json())
@@ -19,7 +20,14 @@ app.use(express.json())
 app.use(helmet())
 app.use(compression())
 
-app.use('/images', express.static(APP_PATH.FOLDER_IMAGES))
+app.use(
+  '/images',
+  express.static(APP_PATH.FOLDER_IMAGES, {
+    setHeaders: (res, path) => {
+      res.set('Cross-Origin-Resource-Policy', 'cross-origin')
+    }
+  })
+)
 
 app.use('/', router)
 

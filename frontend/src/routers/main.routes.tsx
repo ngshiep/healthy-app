@@ -5,7 +5,7 @@ import LayoutPrivate from 'src/layouts/pages/LayoutPrivate'
 import LayoutPublic from 'src/layouts/pages/LayoutPublic'
 import IsLoggedIn from 'src/middlewares/IsLoggedIn'
 import MustLogin from 'src/middlewares/MustLogin'
-import Blog from 'src/modules/blog'
+import Columns from 'src/modules/columns'
 import LoginPage from 'src/modules/login'
 import MyPage from 'src/modules/my-page'
 import MyRecord from 'src/modules/my-record'
@@ -24,8 +24,8 @@ export const router = createBrowserRouter([
     element: <LayoutPublic />,
     children: [
       {
-        path: urls.web.blog,
-        element: <Blog />
+        path: urls.web.column,
+        element: <Columns />
       }
     ]
   },
