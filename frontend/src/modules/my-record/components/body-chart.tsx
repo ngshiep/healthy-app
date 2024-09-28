@@ -116,7 +116,7 @@ export default function BodyChart() {
         <span className='text-[15px] inline-block h-6 w-[54px] bg-white text-primary-300 rounded-full text-center font-medium'>
           月
         </span>
-        <span className='text-[15px] inline-block h-6 w-[54px] bg-white text-primary-300 rounded-full text-center font-medium'>
+        <span className='text-[15px] inline-block h-6 w-[54px] bg-primary-300 text-white rounded-full text-center font-medium'>
           年
         </span>
       </div>

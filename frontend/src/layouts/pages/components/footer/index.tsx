@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer
       className={customClassNames(
-        ' w-screen h-[128px]  flex items-center justify-center bg-bg_primary border border-border  '
+        ' w-screen h-[128px]  flex items-center justify-center bg-bg_primary border border-border flex-shrink-0 '
       )}
     >
       <div className='flex gap-[45px] max-w-[960px] w-full'>

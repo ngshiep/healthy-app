@@ -39,7 +39,7 @@ export default function LayoutPrivate() {
         <HeaderPrivate />
         <div className='flex-1 flex flex-col text-text_secondary w-full bg-white items-center'>
           <div
-            className=' w-full min-h-full overflow-auto overflow-x-hidden pt-[64px] mb-[128px] relative flex flex-col items-center justify-center'
+            className=' w-full min-h-full overflow-y-auto overflow-x-hidden pt-[64px] mb-[128px] flex flex-col items-center justify-center'
             ref={containerRef}
           >
             <Outlet></Outlet>

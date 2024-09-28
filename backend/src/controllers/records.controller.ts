@@ -9,5 +9,5 @@ export const getRecordsController = async (req: Request, res: Response) => {
   const records = await databaseService.records.find()
   const foundRecords = records.find((r) => r.user_id === user_id)
   if (!foundRecords) new NotFoundError({ message: 'Not found records', data: {} }).send(res)
-  new OK({ message: 'Get records successfully!', data: records }).send(res)
+  new OK({ message: 'Get records successfully!', data: records[0] }).send(res)
 }

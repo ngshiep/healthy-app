@@ -2,7 +2,7 @@ import { ButtonPrimary } from 'src/components/ButtonComponent'
 import CategoryItem from './components/category-item'
 import ColumnItem from './components/column-item'
 import ColumnSkeleton from './components/column-sekeleton'
-import { useColumns } from './services/useProjectQueries'
+import { useColumns } from './services/useColumnsQueries'
 
 export default function Columns() {
   const { data, isLoading } = useColumns()

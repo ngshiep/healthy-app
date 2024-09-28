@@ -1,10 +1,16 @@
+import { ButtonPrimary } from 'src/components/ButtonComponent'
 import BodyChart from './components/body-chart'
 import CategoryRecord from './components/category-record'
+import Diary from './components/diary'
+import Exercise from './components/exercise'
+import { useRecords } from './services/useRecordsQueries'
 
 export default function MyRecord() {
+  const { data } = useRecords()
+
   return (
-    <div className='flex flex-col items-center mt-[56px] max-w-[960px] flex-1'>
-      <div className='grid grid-cols-3 gap-x-12'>
+    <div className='flex flex-col items-center max-w-[960px] flex-1 gap-[56px]'>
+      <div className='grid grid-cols-3 gap-x-12 h-[288px]'>
         <CategoryRecord
           englishLabel='BODY RECORD'
           japaneseLabel='自分のカラダの記録'
@@ -18,14 +24,12 @@ export default function MyRecord() {
         <CategoryRecord englishLabel='MY DIARY' japaneseLabel='自分の日記' img='/MyRecommend-3.jpg'></CategoryRecord>
       </div>
       <BodyChart></BodyChart>
-      {/* <div className='grid grid-cols-4 gap-x-2 gap-y-[18px] mt-[56px] mb-[24px]'>
-        {!isLoading && data?.map((c) => <ColumnItem key={c.id} column={c}></ColumnItem>)}
-        {isLoading &&
-          Array(8)
-            .fill(0)
-            .map((_, index) => <ColumnSkeleton key={index}></ColumnSkeleton>)}
+
+      <Exercise exercies={data?.exercise as any}></Exercise>
+      <Diary></Diary>
+      <div className='flex items-center mt-6 mb-[64px]'>
+        <ButtonPrimary label='自分の日記をもっと見る'></ButtonPrimary>
       </div>
-      <ButtonPrimary label='コラムをもっと見る'></ButtonPrimary> */}
     </div>
   )
 }
